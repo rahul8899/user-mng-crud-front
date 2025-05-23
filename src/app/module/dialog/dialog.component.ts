@@ -24,20 +24,12 @@ export class DialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: any, private toast: ToastrService
   ) { }
 
-  async delateDevice() {
-    this.apiService.deleteCategory(this.data.id).subscribe({
-      next: (res: any) => {
-        if (res.success) {
-          this.toast.success(res.message)
-          this.dialogRef.close({ action: 1, data: "true" });
-        } else {
-          this.toast.error(res.message)
-        }
-      },
-      error: (err) => {
-        this.toast.error(err.message)
-      }
-    })
+  delateDevice() {
+    this.dialogRef.close({ action: 1, data: "true" });
+  }
+
+  closeDialog() {
+    this.dialogRef.close({ action: 0, data: "false" });
   }
 
 }

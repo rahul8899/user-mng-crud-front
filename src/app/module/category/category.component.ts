@@ -140,7 +140,21 @@ export class CategoryComponent {
     this.beforeUpdateUser = element;
     this.dialog.open(DialogComponent, { data: { id: this.beforeUpdateUser.id } }).afterClosed().subscribe(data => {
       if (data.data == 'true') {
-        this.getCategory()
+        this.APIService.deleteCategory(this.beforeUpdateUser.id).subscribe({
+          next: (res: any) => {
+            if (res.success) {
+              this.toster.success(res.message)
+              this.getCategory()
+              this.cancelButton();
+            } else {
+              this.toster.error(res.message)
+            }
+          },
+          error: (err) => {
+            this.toster.error(err.message)
+          }
+        })
+      } else {
         this.cancelButton();
       }
     });
