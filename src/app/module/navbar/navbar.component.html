@@ -3,6 +3,8 @@
         <h2>Crud form</h2>
         <ul>
             @if (token) {
+            <li><a href="/category" routerLinkActive="active">Category</a></li>
+            <li><a href="/product" routerLinkActive="active">Product</a></li>
             <li (click)="signOut()">
                 Logout
             </li>

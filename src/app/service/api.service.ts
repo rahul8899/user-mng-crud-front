@@ -32,4 +32,20 @@ export class APIService {
   deleteCategory(id: number) {
     return this.http.delete(API_PATH.CATEGORY, id)
   }
+
+  createProduct(data: any) {
+    return this.http.post(API_PATH.PRODUCT, data)
+  }
+
+  getProduct() {
+    return this.http.get(API_PATH.PRODUCT)
+  }
+
+  updateProduct(id: number, data: any) {
+    return this.http.put(API_PATH.PRODUCT, id, data)
+  }
+
+  deleteProduct(id: number) {
+    return this.http.delete(API_PATH.PRODUCT, id)
+  }
 }

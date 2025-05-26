@@ -4,6 +4,7 @@ import { authGuard } from './auth.guard';
 import { NotFoundComponent } from './module/not-found/not-found.component';
 import { SignupComponent } from './module/signup/signup.component';
 import { CategoryComponent } from './module/category/category.component';
+import { ProductComponent } from './module/product/product.component';
 
 export const routes: Routes = [
 
@@ -11,4 +12,5 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'signup', component: SignupComponent },
     { path: 'category', component: CategoryComponent, canActivate: [authGuard] },
+    { path: 'product', component: ProductComponent, canActivate: [authGuard] },
 ];
